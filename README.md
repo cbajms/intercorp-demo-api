@@ -12,8 +12,11 @@ Mira **Deployment** para conocer como desplegar el proyecto.
 
 ### Pre-requisitos 📋
 1° Docker https://www.docker.com/products/developer-tools
+
 2° Oracle Express 11g dockerizado! - https://github.com/wnameless/docker-oracle-xe-11g
+
 3° Oracle driver - https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html
+
 4° JDK 11 - https://www.oracle.com/ar/java/technologies/javase-jdk11-downloads.html
 
 ### Instalación 🔧

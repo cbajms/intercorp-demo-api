@@ -34,6 +34,9 @@ public class Customer {
     @Column(name = "edad", nullable = false)
     private Integer age;
 
+    @ApiModelProperty(value = "customer's estimated date of death", example = "20/03/2050", position = 5)
+    private transient LocalDate dateOfDeath;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,6 +82,22 @@ public class Customer {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public LocalDate getDateOfDeath() {
+        return dateOfDeath;
+    }
+
+    public void setDateOfDeath(LocalDate dateOfDeath) {
+        this.dateOfDeath = dateOfDeath;
+    }
+
     @Override
     public String toString() {
         return "Customer{" +
@@ -87,14 +106,7 @@ public class Customer {
                 ", lastName='" + lastName + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", age=" + age +
+                ", dateOfDeath=" + dateOfDeath +
                 '}';
-    }
-
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
     }
 }

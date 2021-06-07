@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,8 +18,14 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
+    private static final Long LIFE_EXPECTANCY = 75L;
+
     public List<Customer> getAll() {
-        return customerRepository.findAll();
+        List<Customer> result = customerRepository.findAll();
+        result.forEach(r -> {
+            r.setDateOfDeath(estimateDateOfDeath(r));
+        });
+        return result;
     }
 
     public Customer getById(Long customerId) {
@@ -79,5 +86,10 @@ public class CustomerService {
                 .mapToInt(Customer::getAge)
                 .average()
                 .getAsDouble();
+    }
+
+    public LocalDate estimateDateOfDeath(Customer customer) {
+        long years = LIFE_EXPECTANCY - customer.getAge();
+        return customer.getDateOfBirth().plusYears(years);
     }
 }

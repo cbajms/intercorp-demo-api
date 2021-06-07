@@ -2,6 +2,7 @@ version: "3.7"
 
 networks:
   intercorp-demo-api:
+    driver: bridge
 
 services:
   api:
@@ -27,7 +28,7 @@ services:
     build:
       context: oracle-db
       dockerfile: Dockerfile
-    container_name: db  
+    container_name: db
     environment:
       - SOME_VAR=some_value
     ports:

@@ -1,0 +1,39 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /intercorp-demo-api
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+
+logging:
+  level:
+    com.intercorp.demo: INFO
+
+spring:
+  application:
+    name: "Intercorp Demo API"
+  # create and drop tables
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        ddl-auto: none
+    open-in-view: off
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    username: ${DB_USER:system}
+    password: ${DB_PASSWORD:oracle}
+    url: jdbc:oracle:thin:@${DB_HOST:localhost}:${DB_PORT:49161}:${DB_NAME:xe}
+    hikari:
+      connection-test-query: "select 1 from dual"
+
+#  datasource:
+#    url: jdbc:oracle:thin:@localhost:49161:xe
+#    username: system
+#    password: oracle
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+
+

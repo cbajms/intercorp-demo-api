@@ -38,60 +38,29 @@ hasta finalizar
 _Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
 
 ## Ejecutando las pruebas ⚙️
-
-_Explica como ejecutar las pruebas automatizadas para este sistema_
-
-### Analice las pruebas end-to-end 🔩
-
-_Explica que verifican estas pruebas y por qué_
-
+_Con la aplicación corriendo de forma local, se puede acceder a su documentacion swagger de la siguiente forma: _
 ```
-Da un ejemplo
+http://localhost:8085/swagger-ui.html
 ```
-
-### Y las pruebas de estilo de codificación ⌨️
-
-_Explica que verifican estas pruebas y por qué_
-
+_POST /creacliente: en CustomerController_
 ```
-Da un ejemplo
+/clientes
 ```
-
+_GET /kpideclientes: en CustomerController_
+```
+/clientes/kpideclientes
+```
+_GET /listclientes: en CustomerController_
+```
+/clientes/
+```
 ## Despliegue 📦
 
-_Agrega notas adicionales sobre como hacer deploy_
-
-## Construido con 🛠️
-
-_Menciona las herramientas que utilizaste para crear tu proyecto_
-
-* [Spring Initializr](https://start.spring.io/) - generar un proyecto springboot desde cero
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
-* [Docker](https://www.docker.com/get-started) - contenedor de aplicaciones
-* [GIT](https://git-scm.com/downloads) - versionado
-
-## Wiki 📖
-
-Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](https://github.com/tu/proyecto/wiki)
-
-## Versionado 📌
-
--
-
-## Autores ✒️
-
-* **Maxi Sampaoli** - *Trabajo Inicial* - [cbajms](https://github.com/cbajms) | [![LinkedIn][linkedin-shield]][linkedin-url]
-
-## Licencia 📄
-
--
-
-## Deployment
 - Obtener la imagen de base de datos
 ```
 docker pull wnameless/oracle-xe-11g-r2
 ```
-Los datos de conexion son los siguientes
+_Los datos de conexion son los siguientes_
 ```
 hostname: localhost
 port: 49161
@@ -104,18 +73,41 @@ password: oracle
 docker run -d -p 49161:1521 wnameless/oracle-xe-11g-r2
 ```
 
-Una vez la base de datos se encuentre funcionando, podemos ejecutar los scripts, ayudados con un cliente sql:
+_Una vez la base de datos se encuentre funcionando, podemos ejecutar los scripts, ayudados con un cliente sql_
 ```
 schema.sql
 data.sql
 https://www.oracle.com/tools/downloads/sqldev-downloads.html
 ```
 - Iniciando la aplicación
-Ubicarse en el directorio intercorp-demo-api/api y ejecutar el siguiente comando (con la BD levantada!)
+
+_Ubicarse en el directorio intercorp-demo-api/api y ejecutar el siguiente comando (con la BD levantada!)_
 ```
 mvn spring-boot:run
 ```
-r run -p 8080:8080 cbajms/intercorp-demo-api
-```
+
+## Construido con 🛠️
+
+
+* [Spring Initializr](https://start.spring.io/) - generar un proyecto springboot desde cero
+* [Maven](https://maven.apache.org/) - Manejador de dependencias
+* [Docker](https://www.docker.com/get-started) - contenedor de aplicaciones
+* [GIT](https://git-scm.com/downloads) - versionado
+
+## Wiki 📖
+
+-
+
+## Versionado 📌
+
+-
+
+## Autores ✒️
+
+* **Maxi Sampaoli** - *Trabajo Inicial* - [cbajms](https://github.com/cbajms) | [![LinkedIn][linkedin-shield]][linkedin-url]
+
+## Licencia 📄
+
+-
 
 [linkedin-url]: https://www.linkedin.com/in/maxsampaoli/

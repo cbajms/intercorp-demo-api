@@ -11,13 +11,10 @@ Mira **Deployment** para conocer como desplegar el proyecto.
 
 
 ### Pre-requisitos 📋
-
-1° Oracle Express 11g dockerizado! - https://github.com/wnameless/docker-oracle-xe-11g
-
-2° Oracle driver - https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html
-```
-Da un ejemplo
-```
+1° Docker https://www.docker.com/products/developer-tools
+2° Oracle Express 11g dockerizado! - https://github.com/wnameless/docker-oracle-xe-11g
+3° Oracle driver - https://www.oracle.com/database/technologies/jdbc-ucp-122-downloads.html
+4° JDK 11 - https://www.oracle.com/ar/java/technologies/javase-jdk11-downloads.html
 
 ### Instalación 🔧
 
@@ -81,13 +78,9 @@ Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](ht
 ## Autores ✒️
 
 * **Maxi Sampaoli** - *Trabajo Inicial* - [cbajms](https://github.com/cbajms) | [![LinkedIn][linkedin-shield]][linkedin-url]
-* **Fulanito Detal** - *Documentación* - [fulanitodetal](#fulanito-de-tal)
 
 ## Licencia 📄
 
--
-
-## Expresiones de Gratitud 🎁
 -
 
 ## Deployment
@@ -95,24 +88,31 @@ Puedes encontrar mucho más de cómo utilizar este proyecto en nuestra [Wiki](ht
 ```
 docker pull wnameless/oracle-xe-11g-r2
 ```
+Los datos de conexion son los siguientes
+```
+hostname: localhost
+port: 49161
+sid: xe
+username: system
+password: oracle
+```
 - Ejecutando imagen docker de base de datos
 ```
 docker run -d -p 49161:1521 wnameless/oracle-xe-11g-r2
 ```
 
-Una vez la base de datos se encuentre funcionando, podemos ejecutar los scripts
+Una vez la base de datos se encuentre funcionando, podemos ejecutar los scripts, ayudados con un cliente sql:
 ```
 schema.sql
 data.sql
+https://www.oracle.com/tools/downloads/sqldev-downloads.html
 ```
-- Creando la imagen de la aplicación
+- Iniciando la aplicación
+Ubicarse en el directorio intercorp-demo-api/api y ejecutar el siguiente comando (con la BD levantada!)
 ```
-docker build -t cbajms/intercorp-demo-api .
+mvn spring-boot:run
 ```
--Ejecutando la api dockerizada
+r run -p 8080:8080 cbajms/intercorp-demo-api
 ```
-docker run -p 8080:8080 cbajms/intercorp-demo-api
-```
-
 
 [linkedin-url]: https://www.linkedin.com/in/maxsampaoli/

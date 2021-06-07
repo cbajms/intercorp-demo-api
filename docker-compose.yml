@@ -1,17 +1,12 @@
-version: "3"
+version: "3.7"
 
 networks:
   intercorp-demo-api:
-    driver: bridge
 
 services:
   api:
-    build:
-      context: api
-      dockerfile: Dockerfile-dev
+    build: api
     container_name: api
-    image: cbajms/intercorp-demo-api
-    entrypoint: 'tail -f /dev/null'
     environment:
       - DB_HOST=localhost
       - DB_NAME=xe
@@ -22,9 +17,7 @@ services:
       - ./intercorp-demo-api:/workspace
       - ~/.m2/repository:/root/.m2/repository
     ports:
-      - 8080:8080
-    expose:
-      - "8080"  
+      - 8085:8085
     depends_on:
       - oracle-db
     networks:
@@ -34,8 +27,11 @@ services:
     build:
       context: oracle-db
       dockerfile: Dockerfile
+    container_name: db  
     environment:
       - SOME_VAR=some_value
+    ports:
+      - 49161:1521
     networks:
       - intercorp-demo-api
 

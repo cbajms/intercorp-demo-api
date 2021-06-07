@@ -1,7 +1,6 @@
 server:
-  port: 8080
+  port: 8085
   servlet:
-    context-path: /intercorp-demo-api
   compression:
     enabled: true
     mime-types: application/json,application/xml,text/html,text/xml,text/plain

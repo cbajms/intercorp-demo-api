@@ -12,7 +12,7 @@ services:
       - DB_NAME=xe
       - DB_USER=system
       - DB_PASSWORD=oracle
-      - DB_PORT=49162
+      - DB_PORT=49161
     volumes:
       - ./intercorp-demo-api:/workspace
       - ~/.m2/repository:/root/.m2/repository
@@ -31,7 +31,7 @@ services:
     environment:
       - SOME_VAR=some_value
     ports:
-      - 49162:1521
+      - 49161:1521
     networks:
       - intercorp-demo-api
 

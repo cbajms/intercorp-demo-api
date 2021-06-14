@@ -9,6 +9,8 @@ services:
     container_name: api
     secrets:
       - db_datasource  
+    environment:
+      DB_SECRETS: ./ora11db.properties
     volumes:
       - ./intercorp-demo-api:/workspace
       - ~/.m2/repository:/root/.m2/repository

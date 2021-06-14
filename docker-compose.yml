@@ -7,12 +7,6 @@ services:
   api:
     build: api
     container_name: api
-    environment:
-      - DB_HOST=localhost
-      - DB_NAME=xe
-      - DB_USER=system
-      - DB_PASSWORD=oracle
-      - DB_PORT=49161
     secrets:
       - db_datasource  
     volumes:

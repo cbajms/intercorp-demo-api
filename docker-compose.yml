@@ -13,6 +13,8 @@ services:
       - DB_USER=system
       - DB_PASSWORD=oracle
       - DB_PORT=49161
+    secrets:
+      - db_datasource  
     volumes:
       - ./intercorp-demo-api:/workspace
       - ~/.m2/repository:/root/.m2/repository
@@ -34,4 +36,8 @@ services:
       - 49161:1521
     networks:
       - intercorp-demo-api
+      
+secrets:
+  db_datasource:
+    file: ./ora11db.properties      
 
